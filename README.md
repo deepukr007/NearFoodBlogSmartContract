@@ -84,13 +84,13 @@ In Action :
 
 For Deleting the resturant 
 
-- near call <Contract Name> deleteRestuarant '{"restaurantName":<RestaurantName>}' --account-id <Account ID>
+```near call <Contract Name> deleteRestuarant '{"restaurantName":<RestaurantName>}' --account-id <Account ID>```
 
 For Adding the restaurant 
-- near call <Contract Name> pushRestuarant '{"restaurantName": <Resturant Name> , "location" : <Location>}' --account-id <Account ID>
+```near call <Contract Name> pushRestuarant '{"restaurantName": <Resturant Name> , "location" : <Location>}' --account-id <Account ID>```
 
 For pushing the review
-- near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>
+```near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>```
 
 For getting all the reviews of the restuarant
-- near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'
+```near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'```
