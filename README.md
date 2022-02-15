@@ -3,17 +3,17 @@ Smart contract for food blogging built on top of near blockchain.
 It has a functionalities include adding restaurant , deleting restaurant , adding review and viewing all the reviews of a particular restuarant.
 
 
-Functionalities 
+## Functionalities 
     - Adding a new restuarant
     - Deleting already exisiting restaurant
     - Pushing Review for the target restuarant
     - Viewing all the reviews of the particular restaurant
 
-Some features to notice - 
+## Some features to notice - 
  - Delete can only be done by the contract owner
  - Each restuarant will have set of reviews ( so it's not flat)
 
-Near Features Used :
+## Near Features Used :
     Storage 
         - Persistant vector - For storing set of reviews
         - Persistant maps - For storing resturant object with a restuarant_name key
@@ -30,7 +30,7 @@ Near Features Used :
 
 Note :  <> is a placeholder
 
-##Functions
+## Functions
 
     - pushRestuarant 
         - Parametetrs - '{"restaurantName": <Restuarant Name> , "location" : <Location>}' 
@@ -51,17 +51,17 @@ Note :  <> is a placeholder
        This function returns the list of all the reviews of a a particular restuarant which passed as pamaeters.
  
 
-##Installation
+## Installation
 
 To run the project locally, follow the below steps:
 
 
-##Requirements
+## Requirements
     - Node.js >= 12
     - NEAR CLI :
     ```npm i -g near-cli```
 
-Steps -
+### Steps -
 1) Login to your NEAR account.
 If you don't have a NEAR account , create it at [https://wallet.testnet.near.org/]
 
@@ -78,17 +78,17 @@ If you don't have a NEAR account , create it at [https://wallet.testnet.near.org
 
 
 
-##In Action :
+## In Action :
 
-###For Deleting the resturant  
+### For Deleting the resturant  
 
 ```near call <Contract Name> deleteRestuarant '{"restaurantName":<RestaurantName>}' --account-id <Account ID>```
 
-###For Adding the restaurant  
+### For Adding the restaurant  
 ```near call <Contract Name> pushRestuarant '{"restaurantName": <Resturant Name> , "location" : <Location>}' --account-id <Account ID>```
 
-###For pushing the review  
+### For pushing the review  
 ```near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>```
 
-###For getting all the reviews of the restuarant   
+### For getting all the reviews of the restuarant   
 ```near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'``` 
