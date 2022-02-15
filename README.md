@@ -2,6 +2,13 @@
 Smart contract for food blogging built on top of near blockchain.
 It has a functionalities include adding restaurant , deleting restaurant , adding review and viewing all the reviews of a particular restuarant.
 
+
+Functionalities 
+    - Adding a new restuarant
+    - Deleting already exisiting restaurant
+    - Pushing Review for the target restuarant
+    - Viewing all the reviews of the particular restaurant
+
 Some features to notice - 
  - Delete can only be done by the contract owner
  - Each restuarant will have set of reviews ( so it's not flat)
@@ -21,50 +28,69 @@ Near Features Used :
         - For debugging
     
 
+Note :  <> is a placeholder
 
+Functions
 
+    - pushRestuarant 
+        - Parametetrs - '{"restaurantName": <Restuarant Name> , "location" : <Location>}' 
+         The function will push the restuarnt to blockchain with details like restaurant name and location. First it will check if the restuarant is already in the blockchain. if yes it will throw an error using assertion
+        
+    - deleteRestuarant 
+        - Parametetrs - '{"restaurantName": <Restuarant Name> }' 
+         The function will delete the restuarnt from blockchain.
+         The contract can only do this , this handled by assertion.
+         It also checks wether the restarant is ain blockahin to delete or not , if restuant is not in blockchain it will throw an error
 
-
-Create a book with details like:
-ID of the book
-Name of the book
-Author of the book
-Department to which the book belongs to
-View all the books stored on chain
-
-Query a particular book though ID of the book.
+     - pushReview 
+        - Parametetrs - '{"restaurantName": <Restuarant Name> ,  "review" : <Review> }' 
+          This will add the review of an restuarant to the the vector aloing with it it binds to the resturant. So each restarant can have different set of reviews.
+        
+    - getAllReviewsOfRest
+       - Parametetrs - '{"restaurantName": <Restuarant Name> }' 
+       This function returns the list of all the reviews of a a particular restuarant which passed as pamaeters.
+ 
 
 Installation
 To run the project locally, follow the below steps:
 
 Getting started
-Make sure you have installed Node.js >= 12
-Make sure you have installed NEAR CLI :
-npm i -g near-cli
-Login to your NEAR account.
+
+Requirements
+    - Node.js >= 12
+    - NEAR CLI :
+    npm i -g near-cli
+
+Steps -
+
+1) Login to your NEAR account.
 If you don't have a NEAR account , create it at [https://wallet.testnet.near.org/]
-Configure NEAR CLI to authorize your testnet account:
-near login
-Running the project
-Clone this repository
-In the terminal , navigate to the project folder, to install the dependencies and run yarn
-To create a smart contract development and deployment:
-Run yarn build to build the smart contract. Look at package.json folder to see all the command that can be executed with yarn.
-Run yarn deploy to deploy the smart contract to the development server that was built in the previous step. This will return the Txn ID of the deployed contract along with a link to near explorer to see various statistics of the deployed contract.
-Using the methods of the deployed contract
-The following commands will allow you to interact with NEAR CLI and the deployed smart contract's methods:
 
-Command to create a new book:
-near call $CONTRACT newBook '{"bookId": "string","bookName": "string","author": "string","department": "string"}' --account-id <Enter your account id>
 
-Insert the data in place of "string" mentioned in the command of the method.
-The contract details will be available in the folder named 'neardev'->'dev-account'
+2) Configure NEAR CLI to authorize your testnet account:
+    near login
 
-Command to view all the books:
-near view $CONTRACT seeBooks '{}'
+3) Clone this repository
+    - Install the dependencies using npm
+    - checkout package.json for npm commands
 
-Command to query books with ID:
-near call $CONTRACT queryBook '{"bookID" : "string"}' --account-id <Enter your account id> Insert the ID of the book in place of string in above command.
+4) Deploy 
+  - Chane the deploy script in package.json i.e replace your contract name and your account ID
+  - npm run deploy
 
-USAGE:
-The contract can be used as a Blockchain based Library application for storing books on chain with other related info after amending in the contract.
+
+
+In Action :
+
+For Deleting the resturant 
+
+near call <Contract Name> deleteRestuarant '{"restaurantName":<RestaurantName>}' --account-id <Account ID>
+
+For Adding the restaurant 
+near call <Contract Name> pushRestuarant '{"restaurantName": <Resturant Name> , "location" : <Location>}' --account-id <Account ID>
+
+For pushing the review
+near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>
+
+For getting all the reviews of the restuarant
+near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'
