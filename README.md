@@ -93,4 +93,4 @@ For pushing the review
 ```near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>```
 
 For getting all the reviews of the restuarant
-```near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'```
+```near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'``` 
