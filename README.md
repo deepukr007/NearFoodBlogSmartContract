@@ -30,7 +30,7 @@ Near Features Used :
 
 Note :  <> is a placeholder
 
-Functions
+##Functions
 
     - pushRestuarant 
         - Parametetrs - '{"restaurantName": <Restuarant Name> , "location" : <Location>}' 
@@ -51,21 +51,19 @@ Functions
        This function returns the list of all the reviews of a a particular restuarant which passed as pamaeters.
  
 
-Installation
+##Installation
+
 To run the project locally, follow the below steps:
 
-Getting started
 
-Requirements
+##Requirements
     - Node.js >= 12
     - NEAR CLI :
-    npm i -g near-cli
+    ```npm i -g near-cli```
 
 Steps -
-
 1) Login to your NEAR account.
 If you don't have a NEAR account , create it at [https://wallet.testnet.near.org/]
-
 
 2) Configure NEAR CLI to authorize your testnet account:
     near login
@@ -80,17 +78,17 @@ If you don't have a NEAR account , create it at [https://wallet.testnet.near.org
 
 
 
-In Action :
+##In Action :
 
-For Deleting the resturant  
+###For Deleting the resturant  
 
 ```near call <Contract Name> deleteRestuarant '{"restaurantName":<RestaurantName>}' --account-id <Account ID>```
 
-For Adding the restaurant  
+###For Adding the restaurant  
 ```near call <Contract Name> pushRestuarant '{"restaurantName": <Resturant Name> , "location" : <Location>}' --account-id <Account ID>```
 
-For pushing the review  
+###For pushing the review  
 ```near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>```
 
-For getting all the reviews of the restuarant  
+###For getting all the reviews of the restuarant   
 ```near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'``` 
