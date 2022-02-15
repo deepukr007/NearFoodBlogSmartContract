@@ -1,0 +1,26 @@
+{
+  "name": "public-food-blog",
+  "version": "1.0.0",
+  "description": "Food blogging for the people by the people",
+  "main": "index.js",
+  "scripts": {
+    "test": "asp",
+    "build": "asb",
+    "deploy": "npm run build && near deploy --accountId deepukr007.testnet --wasmFile build/release/public-food-blog.wasm",
+    "login": "near login"
+  },
+  "keywords": [
+    "food",
+    "blog",
+    "decentralised-food-blog"
+  ],
+  "author": "daku",
+  "license": "MIT",
+  "devDependencies": {
+    "near-sdk-as": "^3.2.3"
+  },
+  "dependencies": {
+    "near-cli": "^3.1.0",
+    "source-map-support": "^0.5.21"
+  }
+}
