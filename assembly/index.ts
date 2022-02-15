@@ -47,7 +47,6 @@ export function pushreview (restaurantName:string , review:string): string {
 }
 
 
-
 //Get the list of reviews of the particular restaurant
 export function getAllReviewsOfRest(restaurantName:string):Array<string> 
 {
@@ -59,13 +58,18 @@ export function getAllReviewsOfRest(restaurantName:string):Array<string>
 
     for(let i:i32 =0 ; i < reviews.length ; i++)
     {
-     
+
+     if(reviews[i].restaurant.restaurant_name == restaurantName)
+     {
         allReviews_.push( reviews[i].review);
+     }
+    
         
     }
+
+    logging.log("Total reviews of this restuarant " + allReviews_.length.toString());
+
       
-    
-   // allReviews_.filter( (value , index , arr) =>  (value.restaurant.restaurant_name==restaurantName))
-    return allReviews_;
+     return allReviews_;
 
 }
