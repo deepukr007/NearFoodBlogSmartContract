@@ -82,15 +82,15 @@ If you don't have a NEAR account , create it at [https://wallet.testnet.near.org
 
 In Action :
 
-> For Deleting the resturant 
+For Deleting the resturant \n
 
 ```near call <Contract Name> deleteRestuarant '{"restaurantName":<RestaurantName>}' --account-id <Account ID>```
 
-> For Adding the restaurant 
+For Adding the restaurant \n
 ```near call <Contract Name> pushRestuarant '{"restaurantName": <Resturant Name> , "location" : <Location>}' --account-id <Account ID>```
 
-> For pushing the review
+For pushing the review \n
 ```near call <Contract Name> pushreview '{"restaurantName":<Resturant Name> , "review": <Review>}' --account-id <Account ID>```
 
-> For getting all the reviews of the restuarant
+For getting all the reviews of the restuarant \n
 ```near view <Contract Name> getAllReviewsOfRest '{<Resturant Name>}'``` 
